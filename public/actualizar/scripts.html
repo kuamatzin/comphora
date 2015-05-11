@@ -1,0 +1,109 @@
+
+<html>
+<head>
+	<title>scripts</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+</head>
+<body>
+	
+	<button id="get_iusacell">IUSACELL</button>
+	<button id="get_nextel">NEXTEL</button>
+
+</body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+var compania="";
+
+$("button#get_iusacell").click(function(){
+	compania="iusacell";
+	get_compania();
+
+});
+$("button#get_nextel").click(function(){
+compania="nextel";
+	get_compania();
+
+});
+
+
+
+function get_compania(){
+
+
+	$.ajax({
+
+		url:"actualizar/scripting.php?compania="+compania,
+		//dataType:"get"
+		success:function(regreso){
+
+			console.log(regreso);
+
+			var files = [];
+
+			if(compania=="iusacell"){
+
+				files.push('actualizar/download.php?name=equipos_iusa12.csv&compania='+compania);
+				  files.push('actualizar/download.php?name=equipos_iusa12_controlado.csv&compania='+compania);
+				  files.push('actualizar/download.php?name=equipos_iusa18.csv&compania='+compania);
+				files.push('actualizar/download.php?name=equipos_iusa18_controlado.csv&compania='+compania);
+
+				files.push('actualizar/download.php?name=equipos_iusa24.csv&compania='+compania);
+				files.push('actualizar/download.php?name=equipos_iusa24_controlado.csv&compania='+compania);
+				  //files.push('file3.txt');
+				}
+			else{
+
+				files.push('actualizar/download.php?name=equipos_next18.csv&compania='+compania+"/next_iden");
+				  files.push('actualizar/download.php?name=equipos_next24.csv&compania='+compania+"/next_iden");
+
+				  files.push('actualizar/download.php?name=equipos_next18.csv&compania='+compania+"/next_iphone");
+				  files.push('actualizar/download.php?name=equipos_next24.csv&compania='+compania+"/next_iphone");
+				  
+				  files.push('actualizar/download.php?name=equipos_next18.csv&compania='+compania+"/next_navegacion");
+				  files.push('actualizar/download.php?name=equipos_next24.csv&compania='+compania+"/next_navegacion");
+				  
+				  
+
+
+				}
+
+				  for(var ii=0; ii<files.length; ii++){
+				    downloadURL(files[ii]);
+				  }
+
+
+				var count=0;
+				function downloadURL(url){
+				  var hiddenIFrameID = 'hiddenDownloader' + count++;
+				  var iframe = document.createElement('iframe');
+				  iframe.id = hiddenIFrameID;
+				  iframe.style.display = 'none';
+				  document.body.appendChild(iframe);
+				  iframe.src = url;
+				}
+
+			
+
+			
+
+			/*$.fileDownload('scripts/'+compania+'/equipos_iusa12_controlado.csv')
+    .done(function () { alert('File download a success!'); })
+    .fail(function () { alert('File download failed!'); });*/
+
+		}
+
+	});
+
+}
+
+
+
+
+})
+
+
+</script>
+</html>

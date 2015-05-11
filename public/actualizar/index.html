@@ -1,0 +1,146 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	
+<!--<form action="files/upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload" accept=".csv">
+    <input type="submit" value="Upload Image" name="submit">
+</form>-->
+<input type="file" name="fileToUpload" id="fileToUpload" accept=".csv">
+<select id="meses" name="meses">
+  <option value="24">24 meses</option>
+  <option value="12">12 meses</option>
+  <option value="18">18 meses</option>
+  <option value="36">36 meses</option>
+</select>
+
+<select id="compania" name="compania">
+  <option value="telcel">TELCEL</option>
+  <option value="movistar">MOVISTAR</option>
+  <option value="iusacell">IUSACELL</option>
+  <option value="nextel">NEXTEL</option>
+</select>
+   <input type="button" id="submit" value="Actualizar" name="submit">
+
+</body>
+<script type="text/javascript">
+
+var filez;
+	// grab your file object from a file input
+$('#fileToUpload').change(function () {
+	//console.log("file upload!!!");
+  //sendFile(this.files[0]);
+  filez=this.files[0];
+});
+$("#submit").click(function(){
+
+	if(filez){
+    if($("#meses").val())
+    {
+      if($("#compania").val()){
+        sendFile(filez);
+      }
+    }
+  }
+	
+});
+
+// can also be from a drag-from-desktop drop
+
+
+function sendFile(file) {
+
+/*
+datas = new FormData(); 
+console.log(file);
+datas.append("fileToUpload",file,file.name);
+console.log(datas);
+  $.ajax({
+    type: 'post',
+    url: 'files/upload.php?name=' + file.name,
+    data: file,
+    success: function () {
+      // do something
+    },
+    xhrFields: {
+      // add listener to XMLHTTPRequest object directly for progress (jquery doesn't have this yet)
+      onprogress: function (progress) {
+        // calculate upload progress
+        var percentage = Math.floor((progress.total / progress.total) * 100);
+        // log upload progress to console
+        console.log('progress', percentage);
+        if (percentage === 100) {
+          console.log('DONE!');
+        }
+      }
+    },
+    processData: false,
+    contentType: file.type
+  });*/
+
+var data = new FormData();   
+data.append('fileToUpload', file, file.name);
+
+var xhr = new XMLHttpRequest();     
+ // Create a new XMLHttpRequest
+ xhr.open('POST', 'upload/upload.php?comp='+$("#compania").val()+"&meses="+$("#meses").val(), true);  
+ // File Location, this is where the data will be posted
+ xhr.send(data);
+ xhr.onreadystatechange=function()
+  {
+     if (xhr.readyState==4 && xhr.status==200)
+    {
+      console.log("LISTO!!");
+      Download_files();
+    }
+  }
+ xhr.onload = function () {                  
+ // On Data send the following works
+  if (xhr.status === 200) {
+   $("#drop-box").html("<p>File Uploaded. Select more files</p>");
+  } else {
+   $("#drop-box").html("<p>Error in upload, try again.</p>");
+  }
+ };
+
+
+
+
+
+}
+
+
+function Download_files(){
+
+  files= new Array();
+
+        files.push('upload/planes_faltan.csv');
+          files.push('upload/smartphones_faltan.csv');
+
+          
+
+          for(var ii=0; ii<files.length; ii++){
+            downloadURL(files[ii]);
+          }
+
+
+        var count=0;
+        function downloadURL(url){
+          var hiddenIFrameID = 'hiddenDownloader' + count++;
+          var iframe = document.createElement('iframe');
+          iframe.id = hiddenIFrameID;
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+          iframe.src = url;
+        }
+
+
+}
+
+
+
+</script>
+</html>

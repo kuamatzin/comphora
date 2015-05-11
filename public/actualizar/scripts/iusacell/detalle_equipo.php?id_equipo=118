@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/base_home_internos.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>..:: Iusacell ::.. iPhone 5s 32 GB</title>
+<!-- InstanceEndEditable -->
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold" rel="stylesheet" type="text/css" />
+<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link href="../css/textos.css" rel="stylesheet" type="text/css" />
+<link href="../css/home.css" rel="stylesheet" type="text/css" />
+<link href="../css/internas.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.iusacell.com.mx/images/icon/favicon.ico" type="image/x-icon" />
+ 
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+<script type="text/javascript" src="../js/jquery.backgroundpos.js"></script>
+<script type="text/javascript" src="../js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="../js/jquery.coda-slider-2.0.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	
+		
+	
+	$("ul#NavInternas ul").css({'display':'none'});
+	$("ul#NavInternas li").hover(function(){
+		$(this).find('ul:first:hidden').css({'visibility': 'visible', 'display': 'none'}).slideDown(400);
+		},function(){
+			$(this).find('ul:first').slideUp(400);
+		});
+	
+    $.fn.equalCols = function(){ 
+        var tallestHeight = 0; 
+        $(this).each(function(){ 
+            var thisHeight = $(this).height(); 
+            if (thisHeight > tallestHeight){ 
+                tallestHeight = thisHeight;
+            }
+        });
+        $(this).height(tallestHeight); 
+    }	
+	
+	$('.filas').equalCols();	
+	$('.superFilas').equalCols();
+	
+	$("a[rel]").overlay({		
+		//effect: 'apple',
+		mask: '#000',
+		opacity: 0.5,
+		onBeforeLoad: function(){
+			var wrap = this.getOverlay().find(".contentOverlay");
+			wrap.load(this.getTrigger().attr("href"));
+		}
+	});	
+	
+	//Comerciales
+	$("a.mi_comercial").click(function(){
+		//alert("hola");
+		mi_url = $(this).attr("href").substring(1).split("=");	
+		src = mi_url[1];			
+		$("#contentOverlayComercial").prepend("<iframe id='youtube' width='560' height='349' src='http://www.youtube.com/embed/"+ src +"?autoplay=1&rel=0' frameborder='0' allowfullscreen></iframe>");
+	});
+	
+	$("a.mi_comercial").overlay({
+			target: "#overlay_comercial",
+			//effect: "apple",
+			mask: "#000",
+			opacity: 0.5,
+			left: 'center',
+			onBeforeClose: function(){
+				$("#youtube").remove();
+			}
+	});	
+	//	
+	
+	// ContenidoWidget
+	$("a.mi_widget").click(function(){
+		$("#contentOverlayWidget").prepend("<iframe id='ezetop' width='220' height='370' src='../viva/recarga_tiempo_aire/index.html' frameborder='0' allowfullscreen></iframe>");
+	});
+	
+	
+	$("a.mi_widget").overlay({
+			target: "#overlay_info",
+			//effect: "apple",
+			mask: "#000",
+			opacity: 0.5,
+			onBeforeClose: function(){
+				$("#ezetop").remove();
+			}
+	});		
+	
+	//
+	
+	$("ul#FirstMenu ul").css({'display':'none'});
+	$("ul#FirstMenu li").hover(function(){
+		$(this).find('ul:first:hidden').css({'visibility': 'visible', 'display': 'none'}).slideDown(400);
+		},function(){
+			$(this).find('ul:first').slideUp(400);
+		});	
+	
+});
+</script>
+
+
+<!-- InstanceBeginEditable name="head" -->
+
+<link href="../css/home_planes.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function(){
+
+$("ul.main_header_equipo_tabs").tabs("div.main_container_tabs_2 > div");
+$("ul.header_equipo_plan_final_2").tabs("div.main_container_plan > div");
+
+});
+</script>
+<style>
+.MainWrapperInfo2{
+	margin: 0 0 0 25px!important;
+	padding: 0px;
+	width: 625px;
+	height: auto;
+	float: left;
+	overflow: hidden;	
+}
+.main_container_equipo_info_2{
+	margin: 0 !important;
+	padding: 0px;
+	width: 900px;
+	height: auto;
+	overflow: hidden;	
+}
+.WrapperTitleInfo_2{
+	margin: 0px;
+	padding: 10px 0px 10px 10px;
+	background-color: #000;
+	color: #FFF;
+	font-size: 18px;
+	font-weight: normal;
+	width: 615px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;	
+}
+.main_container_tabs_2 {
+	margin: 0 !important;
+	padding: 0;
+	width: 625px;
+	min-height: 650px;
+	
+	overflow: hidden;
+}
+.supertabla{
+	width:625px;	
+}
+.info_equipo_content_2{
+	margin: 0px;
+	padding: 20px;
+	background-color: #FFF;
+	color: #666;
+	width: 585px;
+	height: auto;
+}
+.equipos_caracteristicas_2{
+	margin: 0 0 0 80px;
+	padding: 0px;
+	width: 465px;	
+}
+.equipos_caracteristicas_2 tr td {
+	margin: 0px;
+	padding: 7px 0px 6px 0px;
+}
+
+.equipos_caracteristicas_2 tr td.info {
+	background-color: #f6f6f6;
+	text-align: center
+}
+
+.equipos_caracteristicas_2 tr td#ultimo {
+	border: 0px;
+}
+#titulo_planes_equipos{
+	margin: 0 !important;
+	padding: 5px 5px;
+	width: 615px;
+}
+.header_equipo_plan_final_2{
+	margin: 0 !important;
+	list-style-type: none;
+	padding: 0px;
+	height: 40px;
+	width: 625px;
+	background-color: #e6e6e6;
+}
+.header_equipo_plan_final_2 li {
+	float: left;
+	padding: 0px;
+	margin: 0 !important;
+	list-style-type: none;
+}
+
+.header_equipo_plan_final_2 a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	width: 105px;
+	text-align: center;
+	text-decoration: none;
+	color:#000;
+	padding: 0px;
+	margin: 0px;
+	background-image: url(../equipos/detalle/menu_planes_left_2.png);
+	background-repeat: no-repeat;
+	background-position: right center !important;
+}
+
+.header_equipo_plan_final_2 a:active {
+	outline: none;
+}
+
+.header_equipo_plan_final_2 a:hover {
+	background-image: none;
+	background-color: #666666;
+	color: #FFF;
+}
+
+.header_equipo_plan_final_2 .current, .header_equipo_plan_final .current:hover, .header_equipo_plan_final li.current a {
+	background-image: none;
+	background-color: #666666;
+	color: #FFF;
+	cursor: default;
+}
+
+.titulos_planes_dobles {
+	width: 105px;
+	height: 40px;
+	line-height: 20px;
+}
+.precios_planes_equipos_2 {
+margin: 0px;
+padding: 0px;
+width: 625px;
+text-align: center;
+}
+.precios_planes_equipos_2 tr td {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+.precios_planes_equipos_2 tr td.meses {
+	margin: 0px;
+	padding: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	background-color: #666666;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.precios_planes_equipos_2 tr.info td {
+	margin: 0px;
+	padding: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #666;
+	
+}
+.precios_planes_equipos_2_bis {
+	margin: 0px;
+	padding: 0px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	color: #666;
+	border-bottom: 1px #CCC solid;
+	
+}
+.precios_planes_equipos_2 tr td.precio {
+	margin: 0px;
+	padding: 0px;
+	text-align:center;
+	color: #000;
+	background-color: #f6f6f6;
+	border-bottom: 1px #CCC solid;
+}
+.main_header_equipo_tabs{
+	height: 40px!important;
+	border-bottom: 1px #CCC solid!important;
+}
+.main_header_equipo_tabs a {
+	height: 40px!important;
+	line-height: 39px;
+	font-size: 14px;
+	width: 140px;
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+	padding: 0px;
+	margin: 0px;
+	background-image: url(../equipos/detalle/botton_left.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.main_header_equipo_tabs a:hover {
+	color: #000;
+}
+
+.main_header_equipo_tabs .current, .main_header_equipo_tabs .current:hover, .main_header_equipo_tabs li.current a {
+	background-image: none;
+	color: #000 !important;
+	cursor: default !important;
+}
+.main_header_equipo_tabs a:active {
+	outline:none;
+}
+#v2_eq_en_promo{
+	display:block;
+	width:434px;
+	height:80px;
+	background:url("./imagenes/pleca_promo_equipo.png") no-repeat;	
+}
+
+.texto_gris_18{font-size: 18px;}
+.texto_gris_22{font-size:20px;}
+
+</style>
+<!-- InstanceEndEditable -->
+
+</head>
+<body>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WLSFDF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WLSFDF');</script>
+<!-- End Google Tag Manager -->
+
+<div id="cabecera"></div>  
+<div id="MainWrapper">     
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6495192-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<div id="WrapperHeader"> 
+    	<ul id="HeaderMenu">
+        	<li><a href="http://www.iusacell.com.mx/index.php" class="activo">Personal</a></li>
+            <li><a href="http://www.iusacell.com.mx/negocios/index.html" onclick="_gaq.push(['_trackEvent', 'Home', 'Menu_Top', 'Negocios']);">Negocios</a></li>
+             
+            <li><a href="https://www.bolsadetrabajoiusacell.com.mx/" onclick="_gaq.push(['_trackEvent', 'Home', 'Menu_Top', 'Bolsa_de_trabajo']);"  target="_blank">Bolsa de Trabajo</a></li>
+        </ul>
+        <ul id="MiIusacell">
+        	<li>Mi Iusacell <a href="https://web.iusacell.com.mx/PortalAutoservWeb/" target="_blank">entrar</a></li>
+        </ul>
+    </div>
+    <div id="WrapperIusacell">
+    	<ul id="SecondMenuIusa">
+        	<li class="limpiar"><a href="http://www.iusacell.com.mx" class="iusacell">Iusacell</a></li>
+        </ul>
+        
+       	<div class="btn-renovaciones">
+        	<a href="http://www.iusacell.com.mx/planes/renovaciones/index.php"></a>
+        </div>
+        
+       
+    	<ul id="SecondMenu">
+        	<!--li class="masIusa"><a href="#" class="activo">+ Iusacell</a></li>-->
+            <li class="roaming"><a href="http://www.iusacell.com.mx/cobertura/roaming.php">Roaming&nbsp;</a></li>
+            <li class="cobertura"><a href="http://www.iusacell.com.mx/cobertura/">Cobertura</a></li>
+            <li class="tiendas"><a href="http://www.iusacell.com.mx/tiendas/index.php">Tiendas</a></li>
+            <!--li class="atencion"><a href="#">Atenci&oacute;n a Clientes</a></li-->
+            <li class="chat"><a href="javascript:var e=window.open('http://200.34.221.110/SightMaxAgentInterface/PreChatSurvey.aspx?accountID=1&siteID=1&queueID=2','chatwindow','width=490, height=404, scrollbars=no,menubar=no,status=no');">Chat</a></li>
+            <!--li class="last"><input type="text" name="search" id="search" /></li-->
+        </ul>
+    </div>  	<ul id="FirstMenu">
+        <!--li class="limpiar"><a href="http://www.iusacell.com.mx" class="iusacell">Iusacell</a></li-->
+		<li><a href="http://www.iusacell.com.mx/equipos/index.php" class="general">Equipos</a>
+        	<ul class="submenu">
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Alcatel">Alcatel</a></li>
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Apple">Apple</a></li>
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Huawei">Huawei</a></li>
+                <li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Iusacell">Iusacell</a></li>
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=LG">LG</a></li>
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Motorola">Motorola</a></li>                                                                                
+            	<li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=Samsung">Samsung</a></li>
+                <li><a href="http://www.iusacell.com.mx/equipos/marca_equipo.php?id_marca=ZTE">ZTE</a></li>                                  
+            </ul>        
+        </li>
+        <li class="menu_princ_planes_1"><a href="http://www.iusacell.com.mx/planes/dilo/" class="general">Planes con<br />Equipo Incluido</a>
+        	<ul class="submenu submenu_tres">
+              	<li><a href="http://www.iusacell.com.mx/planes/dilo/index.php">Di lo que quieras</a></li>
+                <li><a href="http://www.iusacell.com.mx/planes/renovaciones/index.php">Renovaciones</a></li> 
+                <li><a href="http://www.iusacell.com.mx/black/">Black by Iusacell</a></li>
+          	</ul>              
+    	</li>
+        <li class="menu_princ_planes_1"><a href="http://www.iusacell.com.mx/libertad/"  class="general">Planes para<br />Equipo Propio </a>
+        	<ul class="submenu">
+            	<li><a href="http://www.iusacell.com.mx/libertad/libertad_sin_limites.php">Libertad Sin L&iacute;mites</a></li>
+                <li><a href="http://www.iusacell.com.mx/libertad/">Libertad Total</a></li>
+                <li><a href="http://www.iusacell.com.mx/preplan/">PrePlan +</a></li>
+          	</ul>
+        </li>
+        <li><a href="http://www.iusacell.com.mx/smartlibre/"  class="general">Smartlibre</a></li>
+      	<li><a href="http://www.iusacell.com.mx/viva/index.php" class="vivakit">VIVA Pre-pago</a>
+        	<ul class="submenu">
+            	<li class="vivakit"><a href="http://www.iusacell.com.mx/viva/activa.php">Activa tu VIVA Pre-pago</a></li>
+                <li class="vivakit"><a href="http://www.iusacell.com.mx/viva/portabilidad.php">Portabilidad</a></li>
+                <li class="vivakit"><a href="http://www.iusacell.com.mx/viva/vivapacks.php">VIVAPacks</a></li>
+                <li class="vivakit"><a href="http://www.iusacell.com.mx/viva/recarga.php">Tiempo aire y tarifas</a></li>
+                <li class="vivakit"><a href="http://www.iusacell.com.mx/viva/servicios_ad.php">Servicio Adicionales</a></li>
+			</ul>                      
+        </li>
+      	<li><a href="http://www.iusacell.com.mx/internet/index.php" class="general">Internet</a>
+        	<ul class="submenu internet">
+            	<li class="header">Para Conectarte</li>
+                <li><a href="http://www.iusacell.com.mx/internet/conecta_dilo.php">Dilo</a></li>
+                <li><a href="http://www.iusacell.com.mx/internet/conecta_smartlibre.php">Smartlibre</a></li>
+                <hr>
+                <li class="header">Para Navegar</li>
+                <li><a href="http://www.iusacell.com.mx/internet/navega_dilo.php">Dilo</a></li>
+                <li><a href="http://www.iusacell.com.mx/internet/navega_smartlibre.php">Smartlibre</a></li>
+                <li><a href="http://www.iusacell.com.mx/internet/navega_preplan.php">PrePlan+PLUS</a></li>
+                <hr>
+                <li><a href="http://www.iusacell.com.mx/internet/calculadora_datos.php">Calculadora</a></li>
+                <li><a href="http://www.iusacell.com.mx/internet/preguntas_frecuentes.php">Preguntas</a></li>
+			</ul>          
+        </li>
+        <li class="limpiar"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/index.php"  class="general">Servicios</a>
+        	<ul class="submenu_dos">
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/sms/">Servicios SMS (Nuevo)</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/rdio/index.php">Rdio</a></li>
+                 <li class="entertainment"><a href="http://www.iusacell.com.mx/qustodio/index.php">Qustodio</a></li>
+                
+                <!-- <li class="entertainment"><a href="http://www.iusacell.com.mx/segurocontrarobo/index.php">Seguro contra robo</a></li> -->
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/portabilidad/index.php">Portabilidad</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/descargar_apps/index.php">Descargar Apps</a></li>
+            	<li class="entertainment"><a href="http://www.iusacell.com.mx/ubicacel_familiar/">Ubicacel Familiar</a></li>  
+                <!-- <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/311.php">*311</a></li> -->
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/611.php">*611</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/911.php">*911</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/taxi.php">*TAXI</a></li>
+				<li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/vial.php">*VIAL</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/iusacell_4u.php">Iusacell 4U</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/servicio_proteccion.php">Reposici&oacute;n por Robo</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/bloqueo_imei/">Reporte de Robo o Extrav&iacute;o</a></li>
+                <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/servicio_ejecutivo.php">Servicio Ejecutivo</a></li> 
+                <!-- <li class="entertainment"><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/conexion_bam.php">Conexi&oacute;n BAM</a></li> -->              <!--  <li class="entertainment"><a href="http://www.iusacell.com.mx/venta_especial_pemex/">Venta Especial PEMEX</a></li> -->
+                
+			</ul>         
+        </li>	</ul>
+
+	<div id="WrapperHomeContent">
+    <!-- InstanceBeginEditable name="home_internos_iusa" -->
+          
+        <ul id="NavInternas">
+        <li class="seccionTituloNav"><h2><a href="index.php">Equipos</a></h2></li>  
+        <li><a href="index.php">Marcas</a>
+            <ul class="submenu">
+               
+				                  <li><a href="marca_equipo.php?id_marca=Alcatel">Alcatel</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=Apple">Apple</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=Huawei">Huawei</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=Iusacell">Iusacell</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=LG">LG</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=Motorola">Motorola</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=Samsung">Samsung</a></li>
+                                    <li><a href="marca_equipo.php?id_marca=ZTE">ZTE</a></li>
+                              </ul>  
+        </li>           
+ 	</ul>
+       <div id="WrapperHomeContentInner">   
+       <br />
+          <div class="main_container_equipo_info_2">
+            	<div class="MainWrapperImage">
+                
+                <img src="imagenes/gde_apple_iphone5s.jpg" width="250" height="400" border="0" />
+                </div>
+                <div class="MainWrapperInfo2">
+                	<div class="WrapperTitleInfo_2">
+                    iPhone 5s 32 GB                    </div>
+                    						
+
+                    	<ul class="main_header_equipo_tabs">
+                            <li><a href="#first" class="cero">Planes</a></li>
+                            <li><a href="#second" class="right">Prepago</a></li>
+                        </ul>
+                                                     		<div id="v2_eq_en_promo" style="margin-top: 10px"></div>
+                               
+                        <div class="main_container_tabs_2">
+                        <div class="main_tabs_section">
+                        <div id="titulo_planes_equipos">
+                    	<br />
+                        
+						<ul class="header_equipo_plan_final_2"> 
+                        	
+                           <li><a href='#'><div class='titulos_planes_dobles'>Planes<br>Di lo que quieras</div></a></li>                            										
+                                                    </ul>
+                        <div class="main_container_plan">
+                                                <div class="container_plan_detalle">
+                        <table border="0" cellpadding="0" cellspacing="0" class="precios_planes_equipos_2">
+                        <tr>
+                            <td class="meses" width="123">&nbsp;</td>
+                            <td class="meses" width="99">12 Meses</td>
+                            <td class="meses" width="99">18 Meses</td>
+                            <td class="meses" width="99">24 Meses</td>
+                        </tr>   
+                        <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_facil.png" /></td>
+                                                <td class="precio">$ 12,099</td>
+                                                <td class="precio">$ 11,699</td>
+                                                <td class="precio">$ 11,349</td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_practico.png" /></td>
+                                                <td class="precio">$ 11,349</td>
+                                                <td class="precio">$ 10,799</td>
+                                                <td class="precio">$ 10,199</td>                                          
+                                            </tr>
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_audaz.png" /></td>
+                                                <td class="precio">$ 11,099</td>
+                                                <td class="precio">$ 10,299</td>
+                                                <td class="precio">$ 9,499</td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_seguro.png" /></td>
+                                                <td class="precio">$ 10,249</td>
+                                                <td class="precio">$ 9,049</td>
+                                                <td class="precio">$ 7,649</td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_fuerte.png" /></td>
+                                                <td class="precio">$ 9,449</td>
+                                                <td class="precio">$ 7,799</td>
+                                                <td class="precio">$ 4,999</td>                                    
+                                            </tr>     
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_siempre.png" /></td><!--4119 p5 torrea p5 folio 208 derecha    -->
+                                                <td class="precio">$ 8,399</td>
+                                                <td class="precio">$ 5,949</td>
+                                                <td class="precio">$ 699</td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td class="precios_planes_equipos_2_bis"><img src="../planes/dilo/images/pdilo_todo.png" /></td><!--4119 p5 torrea p5 folio 208 derecha    -->
+                                                <td class="precio">$ 8,099</td>
+                                                <td class="precio">$ 5,399</td>
+                                                <td class="precio"><span class='texto_rojo_V14'>INCLUIDO</span></td>
+                                            </tr>                                   
+                        <tr>
+                            <td colspan="4">
+                                <br />
+                                <br />                                            
+                                <ul id="legales">
+                                    <li>Todos los precios est&aacute;n sujetos a cambios sin previo aviso.</li>
+                                    <li>Precios incluyen IVA.</li> 
+                                </ul> 
+                                <br />                                                                                    
+                            </td>
+                        </tr>                                                                     
+                        </table>  
+                        </div>
+						
+                                                                 	
+                                            </div>
+                                            </div>
+                                            </div>
+                                            
+                                            <div class="main_tabs_section">
+                                            
+                                <div id="titulo_planes_equipos">
+                                    <br />
+                                    <span class="texto_gris_Titles">Precio Prepago</span>
+                                    <br />
+                                    <br />
+                                    <span class="texto_rojo_V22">$ 12199</span>
+                                    <br />
+                                    <br />                                            
+                                    <ul id="legales">
+                                        <li>Todos los precios est&aacute;n sujetos a cambios sin previo aviso.</li>
+                                        <li>Precios incluyen IVA.</li> 
+                                    </ul> 
+                                    <br />                                       
+								</div>                                				                          
+                            </div>
+                            
+                                            																																																							
+                        
+                        </div>   
+                                           
+                                                                               
+                </div>
+            </div>
+           
+     </div>
+      	<!-- InstanceEndEditable -->
+    </div>
+ 
+<div class="mi_overlay" id="overlay">
+	<div class="contentOverlay"></div>
+</div>
+<div class="mi_mapa_overlay" id="overlay_mapa">
+    <div id="contentOverlayMapa"></div>            
+</div>
+<div class="mi_comercial_overlay" id="overlay_comercial">
+	<div id='contentOverlayComercial'></div>
+</div>
+<!-- ZAS -->
+<div class="mi_info_overlay" id="overlay_info">
+	<div id="contentOverlayWidget"></div>
+</div>
+<!-- ZAS -->
+</div>
+
+
+<div id="WrapperFooter">
+	<div id="Footer">
+        <ul id="fourth" class="filas">
+   	    <li><a href="http://www.iusacell.com.mx/equipos/index.php">Equipos&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/planes/index.php">Planes</a></li>
+            <li><a href="http://www.iusacell.com.mx/viva/index.php">Viva Pre-pago</a></li>
+            <li><a href="http://www.iusacell.com.mx/bam/index.php">BAM</a></li>
+            <li><a href="http://www.iusacell.com.mx/smartlibre/">Smartlibre</a></li>
+            <li><a href="http://www.iusacell.com.mx/preplan/">PrePlan +</a></li>
+            <li><a href="http://www.iusacell.com.mx/libertad/">Libertad Total</a></li>
+            <li><a href="http://www.iusacell.com.mx/entretenimiento_y_aplicaciones/navega_desde_tu_telefono.php">Servicios</a></li>
+        </ul>
+        <ul id="fourth" class="filas">
+        	<li><a href="http://www.iusacell.com.mx/cobertura/">Cobertura&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/cobertura/roaming.php">Roaming&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/cobertura/cobertura_garantizada.php">Cobertura Garantizada</a></li>
+            <li><a href="http://www.iusacell.com.mx/tiendas/index.php">Tiendas&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/desbloqueo/">Desbloquea tu equipo&nbsp;</a></li>
+          	<li><a href="javascript:var e=window.open('http://200.34.221.110/SightMaxAgentInterface/PreChatSurvey.aspx?accountID=1&siteID=1&queueID=2','chatwindow','width=490, height=404, scrollbars=no,menubar=no,status=no');">Chat&nbsp;</a></li>
+            <li><a href="javascript:var e=window.open('http://200.34.221.127/SightMaxAgentInterface/PreChatSurvey.aspx?accountID=21&siteID=19&queueID=38
+','chatwindow','width=490, height=404, scrollbars=no,menubar=no,status=no');">Chat&nbsp;Activaciones</a></li>
+			<li>
+            	<a href="javascript:var e=window.open('http://200.34.221.110/SightMaxAgentInterface/PreChatSurvey.aspx?accountID=9&siteID=7&queueID=14','chatwindow','width=490, height=404, scrollbars=no,menubar=no,status=no');">Chat Viajeros</a>
+            </li>
+        </ul>
+        <ul id="fourth" class="filas">
+            <li><a href="http://www.iusacell.com.mx/catalogos" target="_blank">Cat&aacute;logo de Promociones&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/comerciales_de_tv/index.php">Comerciales de TV&nbsp;</a></li>
+            <li><a href="https://www.bolsadetrabajoiusacell.com.mx/" onclick="_gaq.push(['_trackEvent', 'Home', 'Menu_Top', 'Bolsa_de_trabajo']);" target="_blank">Bolsa de Trabajo</a></li>
+            <li><a href="http://www.iusacell.com.mx/noticias/" onclick="_gaq.push(['_trackEvent', 'Home', 'Menu_Bottom', 'Noticias']);" target="_blank">Noticias</a></li>
+        </ul>
+        <ul id="fourth" class="filas"><!-- 
+        	<li><a href="http://www.gruposalinas.com/">Inversionistas&nbsp;</a></li> -->
+          	<li><a href="http://www.iusacell.com.mx/facturacion/index.php">Facturaci&oacute;n&nbsp;</a></li>   
+            <li><a href="https://buzon.interfactura.com/Iusacell/API/PDF.aspx">Comprobante&nbsp;Fiscal&nbsp;Digital&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/bloqueo_imei/">Reporte de Robo o Extrav&iacute;o</a></li> 
+            <li><a href="http://www.iusacell.com.mx/buzon_de_voz/">Buz&oacute;n de Voz</a></li>    
+        </ul>
+        <ul id="third" class="filas">
+        	<div style="font-size:14px; color:#fff; font-weight:400; display:block; height:14px;">Atenci&oacute;n a Clientes</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; display:block; height:20px; margin-top:8px; line-height:20px;">01800 333 0611 <span style="font-size:12px; font-weight:300">&oacute; al</span>&nbsp;&nbsp;*611</div>
+            
+            <div style="font-size:14px; color:#fff; font-weight:400; display:block; height:14px; margin-top:14px;">Ventas</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; display:block; height:20px; margin-top:8px; margin-bottom:14px; line-height:20px;">01800 333 4321</div>
+        	<li class="copy">Siguenos en:</li>
+        	<li>
+				<ul id="social">
+                	<li><a href="http://www.facebook.com/iusacell" target="_blank" ><img src="http://www.iusacell.com.mx/images/footer/icono_face.png" width="35" height="35" border="0"/></a></li>
+                    <li><a href="https://twitter.com/iusacell" target="_blank"><img src="http://www.iusacell.com.mx/images/footer/icono_twitter.png" width="35" height="35" border="0" /></a></li>
+                    <li><a href="http://www.youtube.com/IusacellMexico/" target="_blank"><img src="http://www.iusacell.com.mx/images/footer/icono_youtube.png" width="35" height="35" border="0" /></a></li>
+                    <li><a href="http://instagram.com/iusacellmexico/" target="_blank"><img src="http://www.iusacell.com.mx/images/footer/icono_instagram.png" width="35" height="35" border="0" /></a></li>
+                    <li><a href="https://plus.google.com/u/1/b/112174624917509136828/+iusacell/posts" target="_blank"><img src="http://www.iusacell.com.mx/images/footer/icono_gplus.png" width="35" height="35" border="0" /></a></li>
+                </ul>
+            </li>
+       	  	<li class="copy">&copy;&nbsp;2015&nbsp;Iusacell&nbsp;S.A.&nbsp;de&nbsp;C.V.&nbsp;Derechos Reservados&nbsp;</li>
+            <li><a href="http://www.iusacell.com.mx/documentos/aviso_privacidad_iusacell_2013.pdf" target="_blank">Aviso&nbsp;de&nbsp;Privacidad&nbsp;&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/documentos/politicas_de_seguridad_2012.pdf" target="_blank">Pol&iacute;ticas de Seguridad&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="http://www.iusacell.com.mx/documentos/contrato_iusacell_2013.pdf" target="_blank">Contrato Registrado PROFECO&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <!--li><a href="../documentos/Politicas_de_Privacidad_para_Comercio_Electronico.pdf">Pol&iacute;ticas&nbsp;de&nbsp;Seguridad&nbsp;</a></li-->
+            
+            <li>51.09.44.00 Conmutador</li>
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+</div>
+</body>
+<!-- InstanceEnd --></html>
