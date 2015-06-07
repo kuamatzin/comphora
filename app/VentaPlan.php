@@ -10,6 +10,7 @@ class VentaPlan extends Model {
 	 */
 	protected $table = 'ventas_planes';
 
+
 	public function getStatusAttribute($value){
 		if ($value == 1) {
 			return 'Activo';
