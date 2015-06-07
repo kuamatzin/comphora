@@ -20,7 +20,7 @@ class VentaPlanController extends Controller
 
     public function __construct()
     {
-        $this->middleware('manager', ['except' => ['ventaPlan', 'storePlan', 'descargaContratoTelcel', 'descargaContratoIusacell', 'descargaContratoMovistar', 'storeContrato']]);
+        $this->middleware('manager', ['except' => ['ventaPlan', 'storePlan', 'descargaContratoTelcel', 'descargaContratoIusacell', 'descargaContratoMovistar', 'storeContrato', 'updateStatus']]);
     }
 
     /**
@@ -570,6 +570,14 @@ class VentaPlanController extends Controller
         $venta->save();
         Flash::success('Contrato enviado con éxito, pronto tendras tu nuevo plan!');
         return redirect('comprador');
+    }
+    
+    public function updateStatus(Request $request)
+    {
+        $venta = VentaPlan::find($request->invisible);
+        $venta->status = $request->status;
+        $venta->save();
+        return redirect ('ventas');
     }
 
     /**

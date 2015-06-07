@@ -11,23 +11,23 @@
 |
 */
 
-Route::get('prueba', function(){
-    dd(\Carbon\Carbon::now());
+Route::get('/', function(){
+	return redirect ('auth/login');
 });
-
-Route::get('/', 'HomeController@index');
 
 Route::get('venta/{costo_agregado_id}/{meses}', 'VentaPlanController@ventaPlan');
 
 Route::post('venta/{costo_agregado_id}/{meses}', 'VentaPlanController@storePlan');
 
-Route::post('venta/contrato', 'VentaPlanController@descargaContratoTelcel');
+Route::post('venta/contratoTelcel', 'VentaPlanController@descargaContratoTelcel');
 
-Route::post('venta/contrato', 'VentaPlanController@descargaContratoIusacell');
+Route::post('venta/contratoIusacell', 'VentaPlanController@descargaContratoIusacell');
 
-Route::post('venta/contrato', 'VentaPlanController@descargaContratoMovistar');
+Route::post('venta/contratoMovistar', 'VentaPlanController@descargaContratoMovistar');
 
 Route::post('venta/contrato', 'VentaPlanController@storeContrato');
+
+Route::post('venta/updateStatus', 'VentaPlanController@updateStatus');
 
 Route::get('registrar/confirmacion/{codigo_confirmacion}', 'RegistrarController@confirmar');
 

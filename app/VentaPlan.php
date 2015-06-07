@@ -10,9 +10,15 @@ class VentaPlan extends Model {
 	 */
 	protected $table = 'ventas_planes';
 
-	public function getStatusAttribute($value){
+	/*public function getStatusAttribute($value){
 		if ($value == 1) {
 			return 'Activo';
+		}
+		if ($value == 2) {
+			return "Buro de Crédito";
+		}
+		else {
+			return "Aprobado";
 		}
 	}
 
