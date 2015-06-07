@@ -11,17 +11,10 @@ use Laracasts\Flash\Flash;
 
 class EquipoController extends Controller {
 
-
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-		$this->middleware('manager');
-	}
+    public function __construct()
+    {
+        $this->middleware('manager', ['except' => 'show']);
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -59,18 +52,14 @@ class EquipoController extends Controller {
 
 	/**
 	 * Store a new smartphone with a URL from SmartGSM
-	 * @return Response 
+	 * @return Response
 	 */
 	public function storeURL(Request $request){
 
 		$file = public_path() . "/equipos/download/file.html";
 		$script = public_path() . "/equipos/equipos.pl";
-		$contents = file_get_contents($request->smart_gsm);
-		$bytes_written = File::put($file, $contents);
-		if ($bytes_written === false)
-		{
-		    die("Error al descargar el archivo");
-		}
+
+        $this->downloadFile($request->smart_gsm, public_path() . "/equipos/download/file.html");
 
 		exec("perl $script $file", $output);
 		$fields = array ('nombre', 'velocidad', 'tipo_procesador', 'pantalla_resolucion', 'pantalla_tamano', 'tipo_pantalla', 'memoria_interna', 'memoria_ram', 'memoria_tarjeta', 'bateria_conversacion', 'bateria_espera', 'bateria_capacidad', 'bateria_tipo', 'camara_trasera', 'camara_frontal', 'camara_video', 'bluetooth', 'gps', 'usb', 'wireless', 'red2g', 'red3g', 'red4g', 'os', 'version', 'ancho', 'alto', 'grosor', 'peso', 'slot_sim', 'tipo_sim', 'carac_extras', 'colores', 'imagen', 'marca');
@@ -92,7 +81,12 @@ class EquipoController extends Controller {
 			if($array['grosor'] == ""){$array['grosor'] = NULL;}
 			if($array['peso'] == ""){$array['peso'] = NULL;}
 			if($array['slot_sim'] == ""){$array['slot_sim'] = NULL;}
-			
+
+            $nombre = str_replace("http://cdn1.smart-gsm.com/picture/", "", $array['imagen']);
+            $this->downloadFile($array['imagen'], public_path() . "/equipos/img/$nombre");
+            $urlLocal = str_replace("http://cdn1.smart-gsm.com/picture/", "equipos/img/", $array['imagen']);
+            $array['imagen'] = $urlLocal;
+
 			Equipo::create($array);
 			Flash::success('Equipo creado con exito');
 			return redirect('smartphones');
@@ -104,6 +98,28 @@ class EquipoController extends Controller {
 		}
 	}
 
+  	/**
+  	 * Descargar archivo con CURL
+     *
+  	 * @param  string $source      
+  	 * @param  string $destination 
+  	 * @return Response              
+  	 */
+    public function downloadFile($source, $destination)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $source);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSLVERSION,3);
+        $data = curl_exec ($ch);
+        $error = curl_error($ch);
+        curl_close ($ch);
+
+        $file = fopen($destination, "w+");
+        fputs($file, $data);
+        fclose($file);
+    }
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -112,7 +128,8 @@ class EquipoController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$smartphone = Equipo::find($id);
+		return $smartphone;
 	}
 
 	/**

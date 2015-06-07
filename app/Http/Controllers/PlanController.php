@@ -13,16 +13,10 @@ use Illuminate\Support\Facades\DB;
 
 class PlanController extends Controller {
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-		$this->middleware('manager');
-	}
+    public function __construct()
+    {
+        $this->middleware('manager', ['except' => 'show']);
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -79,7 +73,11 @@ class PlanController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$plan = Plan::find($id);
+		$planInfo = $plan->getInfo();
+		$planInfo->id = $plan->id;
+		$planInfo = json_encode($planInfo, FALSE);
+		return $planInfo;
 	}
 
 	/**

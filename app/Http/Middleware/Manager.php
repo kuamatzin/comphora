@@ -12,7 +12,7 @@ class Manager {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next)
-	{	
+	{
 		if ( ! $request->user()->isManager()) {
 			return redirect('comprador');
 		}

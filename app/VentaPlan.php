@@ -25,7 +25,8 @@ class VentaPlan extends Model {
 		'user_id',
 		'status',
 		'contrato',
-		'observaciones'
+		'observaciones',
+		'contrato_file'
 	];
 
 	/**

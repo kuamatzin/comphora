@@ -11,7 +11,29 @@
 |
 */
 
-Route::group(['middleware' => 'manager'], function()
+Route::get('prueba', function(){
+    dd(\Carbon\Carbon::now());
+});
+
+Route::get('/', 'HomeController@index');
+
+Route::get('venta/{costo_agregado_id}/{meses}', 'VentaPlanController@ventaPlan');
+
+Route::post('venta/{costo_agregado_id}/{meses}', 'VentaPlanController@storePlan');
+
+Route::post('venta/contrato', 'VentaPlanController@descargaContratoTelcel');
+
+Route::post('venta/contrato', 'VentaPlanController@descargaContratoIusacell');
+
+Route::post('venta/contrato', 'VentaPlanController@descargaContratoMovistar');
+
+Route::post('venta/contrato', 'VentaPlanController@storeContrato');
+
+Route::get('registrar/confirmacion/{codigo_confirmacion}', 'RegistrarController@confirmar');
+
+Route::post('registrar/confirmacion/{codigo_confirmacion}', 'RegistrarController@storeUser');
+
+Route::group(['middleware' => 'auth'], function()
 {
     Route::resource('smartphones', 'EquipoController');
 
@@ -27,21 +49,19 @@ Route::group(['middleware' => 'manager'], function()
 
 	Route::resource('tv', 'TvController');
 
-	Route::get('/', 'HomeController@index');
-
 	Route::get('cargamasiva', 'PlanController@cargaMasiva');
 
 	Route::get('costoagregado', 'PlanController@costoAgregado');
-});
 
-Route::group(['middleware' => 'comprador'], function()
-{
-	Route::resource('comprador', 'CompradorController');
+    Route::get('comprador/contrato/{id}', 'CompradorController@descargaContratoTelcel');
+
+    Route::post('comprador/contrato', 'CompradorController@storeContratoTelcel');
+
+    Route::resource('comprador', 'CompradorController');
+
 });
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
-

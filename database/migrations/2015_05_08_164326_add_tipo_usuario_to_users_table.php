@@ -14,7 +14,7 @@ class AddTipoUsuarioToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->integer('tipo_usuario')->nullable()->after('password');
+			$table->integer('tipo_usuario')->default(2)->after('password');
 		});
 	}
 

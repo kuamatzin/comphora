@@ -544,7 +544,7 @@ while(my $fn = shift @ARGV) {
                     $os=1;
                     #print "Valor:".$valor." \n";
                 } 
-        if(index($l,"<div class=\"col-md-3 col-sm-4\">")!=-1)
+        if(index($l,"<div class=\"col-md-3 col-sm-4\">")!=-1 ||index($l,"<div class=\"col-md-3 col-xs-4\">")!=-1)
         {
             
             $img_bool=1;

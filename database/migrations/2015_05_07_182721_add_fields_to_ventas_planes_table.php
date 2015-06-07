@@ -16,7 +16,7 @@ class AddFieldsToVentasPlanesTable extends Migration {
 		{
 			$table->integer('status')->after('user_id');
 			$table->integer('contrato')->after('status');
-			$table->text('observaciones')->after('contrato');
+			$table->text('observaciones')->after('contrato')->nullable();
 		});
 	}
 

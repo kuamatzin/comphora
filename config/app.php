@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
+		
 
 		/*
 		 * Application Service Providers...
@@ -146,7 +146,7 @@ return [
 		'Comparahora\Providers\EventServiceProvider',
 		'Comparahora\Providers\RouteServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
-
+		'Illuminate\Html\HtmlServiceProvider',
 	],
 
 	/*

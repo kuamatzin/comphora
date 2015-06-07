@@ -9,17 +9,10 @@ use Comparahora\Http\Requests\TelefoniaRequest;
 
 class TelefoniaController extends Controller {
 
-
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-		$this->middleware('manager');
-	}
+    public function __construct()
+    {
+        $this->middleware('manager');
+    }
 
 	/**
 	 * Display a listing of the resource.

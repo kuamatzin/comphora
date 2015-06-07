@@ -1,5 +1,6 @@
 <?php namespace Comparahora\Http\Controllers;
 
+use Carbon\Carbon;
 use Comparahora\Http\Requests;
 use Comparahora\Http\Controllers\Controller;
 use Comparahora\Plan;
@@ -7,8 +8,14 @@ use Comparahora\VentaPlan;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class CompradorController extends Controller {
+
+    public function __construct()
+    {
+        $this->middleware('comprador');
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -85,5 +92,15 @@ class CompradorController extends Controller {
 	{
 		//
 	}
+
+
+    public function storeContratoTelcel(Request $request)
+    {
+        $file = $request->file("contrato");
+        $name = "final" . $file->getClientOriginalName();
+        $file->move(public_path() . '/contratosFinales/', $name);
+
+        return redirect ('comprador');
+    }
 
 }
